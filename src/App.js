@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Configuration, OpenAIApi } from "openai";
 import { InputBox } from "./InputBox";
+import "./app.css";
 
 const configuration = new Configuration({
   // apiKey: process.env.REACT_APP_API_KEY,
