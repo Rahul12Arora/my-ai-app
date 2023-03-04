@@ -5,16 +5,19 @@ import { InputBox } from "./InputBox";
 const configuration = new Configuration({
   // apiKey: process.env.REACT_APP_API_KEY,
   // apiKey: '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',
-  apiKey: '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',
+  // apiKey: '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',
 
   // apiKey: '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',
+
+  //lates key
+  apiKey: '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',
 });
 const openai = new OpenAIApi(configuration);
 
 function App() {
   const [userPrompt, setUserPrompt] = useState("");
   const [number, setNumber] = useState(1);
-  const [size, setSize] = useState("512x512");
+  // const [size, setSize] = useState("512x512");
   const [imageUrl, setImageUrl] = useState("");
 
   const generateImage = async () => {
@@ -22,7 +25,6 @@ function App() {
   try {
     const sizeval = document.getElementById("size_select").value;
     console.log("99999999999999999999999 =>",sizeval);
-    console.log("generate Image",userPrompt,number,size);
     const imageParameters = {
       prompt: userPrompt,
       n: parseInt(number),
