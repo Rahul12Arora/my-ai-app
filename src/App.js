@@ -25,7 +25,7 @@ function App() {
 
   try {
     const sizeval = document.getElementById("size_select").value;
-    console.log("99999999999999999999999 =>",sizeval);
+    // console.log("size val =>",sizeval);
     const imageParameters = {
       prompt: userPrompt,
       n: parseInt(number),
@@ -34,15 +34,18 @@ function App() {
     };
     const response = await openai.createImage(imageParameters);
     const urlData = response.data.data[0].url;
-    console.log(response);
     setImageUrl(urlData);
+
+    response.then((data)=>{
+      return data.json
+    }).then(data=> console.log(data))
     
   } catch (error) {
     if (error.response) {
-      console.log(error.response.status);
-      console.log(error.response.data);
+      // console.log(error.response.status);
+      // console.log(error.response.data);
     } else {
-      console.log(error.message);
+      // console.log(error.message);
     }
   }
 }
